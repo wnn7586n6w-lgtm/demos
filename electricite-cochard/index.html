@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!--
+════════════════════════════════════════════════════════════════════
+  SITE VITRINE ARTISAN — « Chaleur artisanale premium »
+  Client : Électricité Cochard — électricien, Montélimar
+  Réalisé par aveio — contact@aveio.fr
+════════════════════════════════════════════════════════════════════
+
+  ⚙️ VARIABLES CLIENT (confirmées)
+  ENTREPRISE   → Électricité Cochard
+  METIER       → Électricien
+  ACCROCHE     → "Électricien certifié à Montélimar"
+  VILLE        → Montélimar
+  ZONE         → Montélimar et alentours (aucune commune précise fournie
+                 par le client → non inventée, radar simplifié)
+  TEL          → 06 71 01 90 26  (tel:+33671019026)
+  ADRESSE      → 13 Allée Paul Besson, 26200 Montélimar
+  ANNEES       → Depuis 2007 → 19 ans en 2026 (data-count="19")
+  CERTIFS      → Certifié réseau Legrand (seule certification confirmée)
+  SIGNAUX      → "Certifié Legrand", "Depuis 2007", "Devis gratuit"
+  SERVICES (6) → Installation électrique, Rénovation électrique,
+                 Dépannage, Mise aux normes, Tableau électrique, Éclairage
+
+  ⚠️ À COMPLÉTER PAR LE CLIENT AVANT MISE EN LIGNE (non inventé) :
+  - EMAIL  → placeholder EMAIL_A_CONFIRMER@exemple.fr (formulaire + footer)
+  - SIRET  → placeholder dans le footer
+  - HORAIRES → non fournis, remplacés par un bloc "Garanties" dans le footer
+  - AVIS CLIENTS → aucun avis/note réel fourni : la section a été
+    transformée en "Nos engagements" (mêmes signaux que ci-dessus),
+    sans témoignage ni note Google inventés.
+
+  📷 PHOTOS : tous les emplacements sont des blocs .ph avec un libellé
+     "PHOTO : …". Remplacer chaque bloc par <img src="…" alt="…">
+     (garder les mêmes classes pour conserver la mise en page).
+
+  ✉️ FORMULAIRE : envoi via mailto par défaut vers l'email placeholder
+     ci-dessus. Pour brancher Formspree : remplacer le handler JS
+     "quoteForm" par action="https://formspree.io/f/XXXX" method="POST"
+     et supprimer le preventDefault.
+
+  🎬 ANIMATIONS : hooks prévus pour GSAP/Lottie → class="reveal",
+     data-animate="fade-up|fade-left|zoom", data-delay, data-count.
+════════════════════════════════════════════════════════════════════
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Électricité Cochard — Électricien certifié à Montélimar | Installation, dépannage, mise aux normes</title>
+<meta name="description" content="Électricité Cochard, électricien certifié réseau Legrand à Montélimar depuis 2007. Installation, rénovation, dépannage, mise aux normes, tableau électrique, éclairage. Devis gratuit : 06 71 01 90 26.">
+<meta name="theme-color" content="#0E2A2E">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════ 1. FONDATIONS ═══════════════ */
+:root{
+  --ink:        #0E2A2E;   /* bleu-canard profond — fond sombre */
+  --ink-2:      #133A40;   /* cartes / surfaces sombres */
+  --ink-3:      #1E4A50;   /* bordures sombres */
+  --paper:      #EEF4F2;   /* porcelaine froide — fond clair */
+  --paper-2:    #DFEAE7;   /* porcelaine soutenue */
+  --accent:     #D9823F;   /* cuivre — CTA, icônes, fills (AA sur fond sombre) */
+  --accent-dk:  #A2551F;   /* cuivre foncé — bordures/ombres accent */
+  --accent-lo:  #9E5121;   /* cuivre profond — texte accent sur fond CLAIR (AA) */
+  --cream-txt:  #EAF2F0;   /* crème froide — texte sur fond sombre */
+  --muted-dk:   #9BB4B0;   /* texte secondaire sur sombre (AA) */
+  --muted-lt:   #4F6763;   /* texte secondaire sur clair (AA) */
+  --display: "Clash Display", "Archivo Black", system-ui, sans-serif;
+  --body: "Manrope", system-ui, -apple-system, sans-serif;
+  --radius: 20px;
+  --ease: cubic-bezier(.16,1,.3,1);
+  --shadow-lift: 0 24px 48px -16px rgba(8,24,26,.4);
+}
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-padding-top:96px; overflow-x:hidden; overflow-x:clip; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
+body{
+  font-family:var(--body); color:var(--ink); background:var(--paper);
+  line-height:1.65; font-size:1.0625rem;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+/* grain signature sur tout le site */
+body::after{
+  content:""; position:fixed; inset:0; z-index:2000; pointer-events:none; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+:focus-visible{ outline:3px solid var(--accent); outline-offset:3px; border-radius:4px; }
+.wrap{ width:min(1180px, 100% - 2.5rem); margin-inline:auto; }
+h1,h2,h3,.display{ font-family:var(--display); font-weight:600; line-height:1.05; letter-spacing:-.01em; }
+
+/* étiquette de section éditoriale */
+.kicker{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-weight:800; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase;
+}
+.kicker .n{ font-family:var(--display); color:var(--accent); font-size:.95rem; letter-spacing:0; }
+.kicker::after{ content:""; width:42px; height:2px; background:var(--accent); }
+.sec-title{ font-size:clamp(2.1rem, 4.6vw, 3.4rem); margin:.7rem 0 1rem; }
+.sec-title em{ font-style:italic; color:var(--accent); }
+/* Accessibilité AA : sur fond clair, le texte accent passe en cuivre profond */
+.services .kicker .n, .works .kicker .n, .reviews .kicker .n,
+.services .sec-title em, .works .sec-title em, .reviews .sec-title em{ color:var(--accent-lo); }
+
+/* ═══════════════ 2. RÉVÉLATIONS AU SCROLL — hooks GSAP-ready ═══════════════ */
+.reveal{ opacity:0; transform:translateY(30px); transition:opacity .8s var(--ease), transform .8s var(--ease); transition-delay:var(--d,0s); }
+.reveal[data-animate="fade-left"]{ transform:translateX(-34px); }
+.reveal[data-animate="zoom"]{ transform:scale(.92); }
+.reveal.is-in{ opacity:1; transform:none; }
+
+/* ═══════════════ 3. BOUTONS ═══════════════ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  font-family:var(--body); font-weight:800; font-size:1rem; text-decoration:none;
+  padding:1rem 1.7rem; border-radius:999px; border:0; cursor:pointer;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .25s;
+  position:relative; overflow:hidden;
+}
+.btn:hover{ transform:translateY(-3px); }
+.btn:active{ transform:translateY(-1px) scale(.98); }
+.btn--fire{ background:var(--accent); color:var(--ink); box-shadow:0 10px 26px -10px rgba(217,130,63,.65); }
+.btn--fire:hover{ background:#FF6B35; box-shadow:0 16px 34px -10px rgba(217,130,63,.8); }
+.btn--ghost-dk{ background:transparent; color:var(--cream-txt); border:2px solid var(--ink-3); }
+.btn--ghost-dk:hover{ border-color:var(--accent); color:var(--accent); }
+.btn--ink{ background:var(--ink); color:var(--cream-txt); }
+.btn--ink:hover{ box-shadow:var(--shadow-lift); }
+/* soulignés animés */
+.u-link{ text-decoration:none; font-weight:700; position:relative; }
+.u-link::after{ content:""; position:absolute; left:0; bottom:-3px; width:100%; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:right; transition:transform .4s var(--ease); }
+.u-link:hover::after{ transform:scaleX(1); transform-origin:left; }
+
+/* ═══════════════ 4. PLACEHOLDERS PHOTO (à remplacer par <img>) ═══════════════ */
+.ph{
+  position:relative; overflow:hidden; background:
+    repeating-linear-gradient(45deg, #D6E1DE 0 14px, #C7D4D0 14px 28px);
+  display:grid; place-items:center; min-height:220px;
+}
+.ph::before{
+  content:"📷 " attr(data-label);
+  font-weight:700; font-size:.82rem; letter-spacing:.06em; text-align:center;
+  color:#3C534F; background:rgba(238,244,242,.92); padding:.55rem 1rem;
+  border-radius:8px; max-width:85%; z-index:1;
+}
+.ph--dark{ background:repeating-linear-gradient(45deg, #123338 0 14px, #0D282C 14px 28px); }
+.ph--dark::before{ color:var(--paper); background:rgba(8,24,26,.92); }
+
+/* ═══════════════ 5. HEADER COLLANT ═══════════════ */
+.header{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  transition:background .35s, box-shadow .35s, padding .35s;
+  padding:1.1rem 0;
+}
+.header.is-scrolled{ background:rgba(8,24,26,.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 1px 0 rgba(238,244,242,.08); padding:.65rem 0; }
+.header .wrap{ display:flex; align-items:center; gap:1.6rem; }
+.logo{ display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--cream-txt); font-family:var(--display); font-weight:700; font-size:1.28rem; letter-spacing:-.01em; }
+.logo-mark{ width:38px; height:38px; border-radius:11px; background:var(--accent); display:grid; place-items:center; flex:none; transition:transform .4s var(--ease); }
+.logo:hover .logo-mark{ transform:rotate(-8deg) scale(1.06); }
+.logo-mark svg{ width:20px; height:20px; }
+.nav{ display:flex; gap:1.7rem; margin-left:auto; }
+.nav a{ color:var(--cream-txt); font-weight:600; font-size:.95rem; text-decoration:none; position:relative; }
+.nav a::after{ content:""; position:absolute; left:0; bottom:-5px; width:100%; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:right; transition:transform .35s var(--ease); }
+.nav a:hover::after{ transform:scaleX(1); transform-origin:left; }
+.header-cta{ display:flex; align-items:center; gap:.9rem; }
+.header-tel{
+  display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
+  color:var(--cream-txt); font-family:var(--display); font-weight:600; font-size:1.06rem;
+  transition:color .25s;
+}
+.header-tel:hover{ color:var(--accent); }
+.header-tel svg{ width:18px; height:18px; color:var(--accent); }
+.header .btn{ padding:.7rem 1.3rem; font-size:.92rem; }
+.burger{ display:none; margin-left:auto; background:none; border:0; cursor:pointer; width:44px; height:44px; border-radius:10px; }
+.burger span{ display:block; width:24px; height:2px; background:var(--cream-txt); margin:5px auto; transition:transform .35s var(--ease), opacity .25s; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+.mobile-menu{
+  position:fixed; top:0; left:0; right:0; z-index:99; background:var(--ink);
+  padding:6rem 2rem 2.4rem; display:none; flex-direction:column; gap:1.3rem;
+  border-bottom:1px solid var(--ink-3); box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
+.mobile-menu.is-open{ display:flex; }
+.mobile-menu a{ color:var(--cream-txt); text-decoration:none; font-family:var(--display); font-weight:600; font-size:1.6rem; }
+.mobile-menu a:hover{ color:var(--accent); }
+
+/* ═══════════════ 6. HÉROS ═══════════════ */
+.hero{
+  background:var(--ink); color:var(--cream-txt); position:relative; overflow:hidden;
+  padding:9.5rem 0 6rem;
+}
+/* halo cuivre */
+.hero::before{
+  content:""; position:absolute; top:-30%; right:-15%; width:70%; aspect-ratio:1;
+  background:radial-gradient(circle, rgba(217,130,63,.16), transparent 65%);
+  pointer-events:none;
+}
+/* ghost-text hyperlocal */
+.hero-ghost{
+  position:absolute; bottom:-1.5rem; left:.5rem; right:.5rem; z-index:0; user-select:none; pointer-events:none;
+  font-family:var(--display); font-weight:700; font-size:clamp(3rem, 11vw, 10rem);
+  line-height:1; color:transparent; -webkit-text-stroke:1px rgba(238,244,242,.07);
+  letter-spacing:.02em; white-space:nowrap; overflow:hidden;
+}
+.hero .wrap{ position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:4rem; align-items:center; }
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:.6rem; font-weight:700; font-size:.85rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:1.4rem;
+}
+.hero-eyebrow::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--accent); animation:pulse 2.2s infinite; }
+@keyframes pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(217,130,63,.5);} 60%{ box-shadow:0 0 0 9px rgba(217,130,63,0);} }
+.hero h1{ font-size:clamp(2.4rem, 4.8vw, 3.9rem); font-weight:700; }
+.hero h1 em{ font-style:italic; color:var(--accent); }
+.hero-sub{ margin:1.5rem 0 2.2rem; max-width:33rem; font-size:1.15rem; color:var(--muted-dk); }
+.hero-sub strong{ color:var(--cream-txt); }
+.hero-ctas{ display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:2.4rem; }
+.hero-proof{ display:flex; flex-wrap:wrap; gap:1.6rem; align-items:center; padding-top:1.6rem; border-top:1px solid var(--ink-3); }
+.proof-item{ display:flex; align-items:center; gap:.55rem; font-size:.92rem; font-weight:600; color:var(--muted-dk); }
+.proof-item b{ color:var(--cream-txt); font-weight:800; }
+.proof-item svg{ width:16px; height:16px; color:var(--accent); }
+/* média héros */
+.hero-media{ position:relative; }
+.hero-photo{
+  border-radius:190px 190px var(--radius) var(--radius); min-height:520px;
+  border:1px solid var(--ink-3);
+}
+.hero-card{
+  position:absolute; top:9%; right:-4%; background:var(--paper); color:var(--ink);
+  border-radius:16px; padding:.95rem 1.25rem; box-shadow:var(--shadow-lift);
+  font-weight:700; font-size:.92rem; display:flex; align-items:center; gap:.7rem;
+  animation:floaty 5.5s ease-in-out infinite;
+}
+.hero-card .big{ font-family:var(--display); font-weight:700; font-size:1.7rem; color:var(--accent); line-height:1; }
+@keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+/* sceau tournant signature */
+.badge-spin{ position:absolute; bottom:-38px; left:-30px; width:148px; height:148px; }
+.badge-spin .disc{ position:absolute; inset:0; border-radius:50%; background:var(--accent); display:grid; place-items:center; box-shadow:0 18px 40px -12px rgba(217,130,63,.55); }
+.badge-spin .disc svg{ width:44px; height:44px; color:var(--ink); }
+.badge-spin .ring{ position:absolute; inset:0; animation:spin 16s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg);} }
+.badge-spin text{ font-family:var(--body); font-weight:800; font-size:10.5px; letter-spacing:2.6px; fill:var(--ink); }
+
+/* ═══════════════ 7. BANDEAU DE CONFIANCE DÉFILANT ═══════════════ */
+.trust{ background:var(--accent); color:var(--ink); overflow:hidden; padding:.95rem 0; border-block:1px solid var(--accent-dk); }
+.trust-track{ display:flex; gap:3rem; width:max-content; animation:marquee 26s linear infinite; }
+.trust:hover .trust-track{ animation-play-state:paused; }
+@keyframes marquee{ to{ transform:translateX(-50%);} }
+.trust-item{ display:inline-flex; align-items:center; gap:.6rem; font-weight:800; font-size:.95rem; letter-spacing:.04em; text-transform:uppercase; white-space:nowrap; }
+.trust-item svg{ width:18px; height:18px; flex:none; }
+
+/* ═══════════════ 8. SERVICES ═══════════════ */
+.services{ padding:6.5rem 0; }
+.services-head{ display:grid; grid-template-columns:1.2fr .8fr; gap:2rem; align-items:end; margin-bottom:3.2rem; }
+.services-head p{ color:var(--muted-lt); max-width:30rem; }
+.svc-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.4rem; }
+.svc{
+  background:#F5FAF8; border:1px solid #D4E0DD; border-radius:var(--radius);
+  padding:2rem 1.8rem; position:relative; overflow:hidden;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .3s;
+}
+.svc:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lift); border-color:var(--accent); }
+.svc-icon{
+  width:54px; height:54px; border-radius:14px; background:var(--ink); color:var(--accent);
+  display:grid; place-items:center; margin-bottom:1.3rem;
+  transition:transform .45s var(--ease), background .3s;
+}
+.svc:hover .svc-icon{ transform:rotate(-8deg) scale(1.08); }
+.svc-icon svg{ width:26px; height:26px; }
+.svc h3{ font-size:1.35rem; margin-bottom:.6rem; }
+.svc p{ color:var(--muted-lt); font-size:.98rem; }
+.svc .u-link{ display:inline-block; margin-top:1.1rem; font-size:.92rem; color:var(--ink); }
+/* carte vedette : urgences */
+.svc--hero{ grid-column:span 2; background:var(--ink); border-color:var(--ink); color:var(--cream-txt); display:grid; grid-template-columns:1.1fr .9fr; gap:1.6rem; align-items:center; }
+.svc--hero:hover{ border-color:var(--accent); }
+.svc--hero p{ color:var(--muted-dk); }
+.svc--hero .svc-icon{ background:var(--accent); color:var(--ink); }
+.svc--hero h3{ font-size:1.7rem; }
+.svc--hero .tag{
+  display:inline-block; background:rgba(217,130,63,.14); color:var(--accent);
+  border:1px solid rgba(217,130,63,.35); font-size:.75rem; font-weight:800;
+  letter-spacing:.12em; text-transform:uppercase; padding:.3rem .8rem; border-radius:999px; margin-bottom:1rem;
+}
+.svc--hero .ph{ border-radius:14px; min-height:190px; height:100%; }
+
+/* ═══════════════ 9. POURQUOI NOUS + COMPTEURS ═══════════════ */
+.why{ background:var(--ink); color:var(--cream-txt); padding:6.5rem 0; position:relative; overflow:hidden; }
+.why::before{ content:""; position:absolute; bottom:-40%; left:-10%; width:60%; aspect-ratio:1; background:radial-gradient(circle, rgba(217,130,63,.1), transparent 65%); pointer-events:none; }
+.why .wrap{ position:relative; display:grid; grid-template-columns:.92fr 1.08fr; gap:4.5rem; align-items:center; }
+.why-photo{ border-radius:var(--radius) 120px var(--radius) var(--radius); min-height:480px; border:1px solid var(--ink-3); }
+.why p.lead{ color:var(--muted-dk); margin-bottom:2.2rem; max-width:32rem; }
+.why-args{ display:grid; gap:1.1rem; margin-bottom:2.6rem; }
+.why-arg{ display:flex; gap:1rem; align-items:flex-start; }
+.why-arg svg{ width:22px; height:22px; color:var(--accent); flex:none; margin-top:.2rem; }
+.why-arg b{ display:block; font-size:1.05rem; }
+.why-arg span{ color:var(--muted-dk); font-size:.95rem; }
+.counters{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem; border-top:1px solid var(--ink-3); padding-top:2.2rem; }
+.counter-box .num{ font-family:var(--display); font-weight:700; font-size:clamp(1.9rem, 3.4vw, 2.7rem); color:var(--accent); line-height:1; }
+.counter-box .lbl{ font-size:.82rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted-dk); margin-top:.45rem; }
+
+/* ═══════════════ 10. RÉALISATIONS + SLIDER AVANT/APRÈS ═══════════════ */
+.works{ padding:6.5rem 0; }
+.works-grid{ display:grid; grid-template-columns:1.25fr .75fr; gap:1.4rem; margin-top:3rem; }
+/* — élément signature : comparateur avant/après — */
+.ba{ position:relative; border-radius:var(--radius); overflow:hidden; min-height:480px; cursor:ew-resize; touch-action:none; box-shadow:var(--shadow-lift); --pos:50%; }
+.ba .ph{ position:absolute; inset:0; min-height:100%; }
+.ba-after{ clip-path:inset(0 0 0 var(--pos)); }
+.ba-handle{
+  position:absolute; top:0; bottom:0; left:var(--pos); width:3px; background:var(--paper);
+  transform:translateX(-50%); z-index:3; pointer-events:none;
+}
+.ba-handle::after{
+  content:"◂ ▸"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:52px; height:52px; border-radius:50%; background:var(--accent); color:var(--ink);
+  display:grid; place-items:center; font-size:.8rem; font-weight:900; letter-spacing:1px;
+  box-shadow:0 8px 22px rgba(8,24,26,.4);
+}
+.ba-label{
+  position:absolute; top:1.1rem; z-index:2; font-weight:800; font-size:.75rem; letter-spacing:.14em;
+  text-transform:uppercase; padding:.35rem .85rem; border-radius:999px;
+}
+.ba-label--avant{ left:1.1rem; background:var(--ink); color:var(--cream-txt); }
+.ba-label--apres{ right:1.1rem; background:var(--accent); color:var(--ink); }
+.ba-range{ position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:ew-resize; z-index:4; -webkit-appearance:none; appearance:none; }
+.ba-caption{ position:absolute; left:1.1rem; bottom:1.1rem; z-index:2; background:rgba(8,24,26,.85); color:var(--cream-txt); padding:.5rem 1rem; border-radius:10px; font-size:.88rem; font-weight:600; }
+.work-cards{ display:grid; gap:1.4rem; }
+.work-card{ position:relative; border-radius:var(--radius); overflow:hidden; transition:transform .45s var(--ease), box-shadow .45s var(--ease); }
+.work-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lift); }
+.work-card .ph{ min-height:225px; }
+.work-card figcaption{
+  position:absolute; left:0; right:0; bottom:0; padding:2.2rem 1.2rem .95rem;
+  background:linear-gradient(transparent, rgba(8,24,26,.88)); color:var(--cream-txt);
+  font-weight:700; font-size:.95rem;
+}
+.work-card figcaption span{ display:block; font-weight:500; font-size:.8rem; color:var(--muted-dk); }
+
+/* ═══════════════ 11. NOS ENGAGEMENTS ═══════════════ */
+.reviews{ background:var(--paper-2); padding:6.5rem 0; }
+.reviews-head{ display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:2rem; margin-bottom:3rem; }
+.gbadge{
+  display:flex; align-items:center; gap:.9rem; background:#F5FAF8; border:1px solid #D4E0DD;
+  padding:.9rem 1.3rem; border-radius:16px; box-shadow:0 8px 24px -12px rgba(8,24,26,.15);
+}
+.gbadge .g{ font-family:var(--display); font-weight:700; font-size:1.6rem; line-height:1; color:var(--accent-lo); }
+.gbadge small{ display:block; color:var(--muted-lt); font-weight:600; font-size:.8rem; }
+.reviews-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:1.4rem; }
+.review{
+  background:#F5FAF8; border:1px solid #D4E0DD; border-radius:var(--radius); padding:2rem;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.review:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lift); }
+.review--big{ grid-row:span 2; display:flex; flex-direction:column; justify-content:space-between; background:var(--ink); color:var(--cream-txt); border-color:var(--ink); }
+.review--big blockquote{ font-family:var(--display); font-weight:500; font-size:clamp(1.25rem, 2.2vw, 1.65rem); line-height:1.35; }
+.review--big blockquote em{ color:var(--accent); font-style:italic; }
+.review blockquote{ font-size:1rem; color:inherit; }
+.review-side{ display:grid; gap:1.4rem; }
+.review-meta{ display:flex; align-items:center; gap:.9rem; margin-top:1.4rem; }
+.avatar{
+  width:46px; height:46px; border-radius:50%; background:var(--accent); color:var(--ink);
+  display:grid; place-items:center; flex:none;
+}
+.avatar svg{ width:22px; height:22px; }
+.review-meta b{ display:block; font-size:.95rem; }
+.review-meta span{ font-size:.83rem; color:var(--muted-lt); }
+.review--big .review-meta span{ color:var(--muted-dk); }
+
+/* ═══════════════ 12. ZONE D'INTERVENTION ═══════════════ */
+.zone{ background:var(--ink); color:var(--cream-txt); padding:6.5rem 0; overflow:hidden; }
+.zone .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.zone p.lead{ color:var(--muted-dk); margin-bottom:2rem; max-width:30rem; }
+.chips{ display:flex; flex-wrap:wrap; gap:.6rem; }
+.chip{
+  display:inline-block; text-decoration:none;
+  border:1px solid var(--ink-3); border-radius:999px; padding:.5rem 1.05rem;
+  font-weight:700; font-size:.9rem; color:var(--cream-txt);
+  transition:border-color .3s, background .3s, transform .3s var(--ease);
+}
+a.chip:hover{ border-color:var(--accent); background:rgba(217,130,63,.1); transform:translateY(-2px); }
+.chip--main{ background:var(--accent); border-color:var(--accent); color:var(--ink); }
+.chip--main:hover{ background:var(--accent-dk); border-color:var(--accent-dk); color:var(--ink); }
+.chip--static{ opacity:.7; }
+.radar{ position:relative; aspect-ratio:1; max-width:460px; margin-inline:auto; }
+.radar svg{ width:100%; height:100%; }
+.radar .ring-a{ animation:ripple 3.4s ease-out infinite; transform-origin:center; }
+.radar .ring-b{ animation:ripple 3.4s ease-out 1.1s infinite; transform-origin:center; }
+@keyframes ripple{ 0%{ transform:scale(.55); opacity:.8;} 100%{ transform:scale(1.15); opacity:0;} }
+.radar-pin{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-100%);
+  color:var(--accent);
+}
+.radar-pin svg{ width:44px; height:44px; filter:drop-shadow(0 8px 16px rgba(217,130,63,.5)); }
+.radar-city{
+  position:absolute; top:56%; left:50%; transform:translateX(-50%);
+  font-family:var(--display); font-weight:700; letter-spacing:.06em; white-space:nowrap;
+}
+.radar-label{ font-family:var(--body); font-weight:700; font-size:12px; letter-spacing:.02em; fill:#9BB4B0; }
+
+/* ═══════════════ 13. BLOC DEVIS ═══════════════ */
+.quote{ padding:6.5rem 0; position:relative; }
+.quote-card{
+  background:var(--ink); color:var(--cream-txt); border-radius:28px; overflow:hidden;
+  display:grid; grid-template-columns:.9fr 1.1fr; position:relative;
+}
+.quote-card::before{ content:""; position:absolute; top:-30%; left:-10%; width:55%; aspect-ratio:1; background:radial-gradient(circle, rgba(217,130,63,.14), transparent 65%); pointer-events:none; }
+.quote-info{ padding:3.5rem 3rem; position:relative; }
+.quote-info h2{ font-size:clamp(2rem, 3.6vw, 2.9rem); margin:.7rem 0 1.2rem; }
+.quote-info h2 em{ font-style:italic; color:var(--accent); }
+.quote-info > p{ color:var(--muted-dk); margin-bottom:2rem; }
+.quote-tel{
+  display:inline-flex; align-items:center; gap:.8rem; text-decoration:none;
+  font-family:var(--display); font-weight:700; font-size:1.75rem; color:var(--cream-txt);
+  margin-bottom:2rem; transition:color .25s;
+}
+.quote-tel:hover{ color:var(--accent); }
+.quote-tel svg{ width:26px; height:26px; color:var(--accent); }
+.quote-tel small{ display:block; font-family:var(--body); font-weight:600; font-size:.8rem; color:var(--muted-dk); }
+.guarantees{ display:grid; gap:.8rem; border-top:1px solid var(--ink-3); padding-top:1.8rem; }
+.guarantees li{ list-style:none; display:flex; gap:.7rem; align-items:center; font-weight:600; font-size:.95rem; }
+.guarantees svg{ width:19px; height:19px; color:var(--accent); flex:none; }
+.quote-form{ background:#F5FAF8; color:var(--ink); padding:3rem; display:grid; gap:1.1rem; align-content:start; }
+.quote-form h3{ font-size:1.45rem; }
+.quote-form p.hint{ font-size:.9rem; color:var(--muted-lt); margin-top:-.5rem; }
+.field label{ display:block; font-weight:800; font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:.4rem; }
+.field input, .field select, .field textarea{
+  width:100%; font-family:var(--body); font-size:1rem; color:var(--ink);
+  background:#fff; border:2px solid #D4E0DD; border-radius:12px; padding:.85rem 1rem;
+  transition:border-color .25s, box-shadow .25s;
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none; border-color:var(--accent); box-shadow:0 0 0 4px rgba(217,130,63,.15);
+}
+.field textarea{ resize:vertical; min-height:110px; }
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; }
+.quote-form .btn{ justify-self:start; }
+.form-note{ font-size:.83rem; color:var(--muted-lt); }
+.form-success{ display:none; background:rgba(34,139,69,.12); border:1px solid rgba(34,139,69,.4); color:#1E6B38; font-weight:700; padding:.9rem 1.1rem; border-radius:12px; }
+.form-success.is-visible{ display:block; }
+
+/* ═══════════════ 14. FOOTER ═══════════════ */
+.footer{ background:#081E21; color:var(--muted-dk); padding:4.5rem 0 7rem; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:2.5rem; margin-bottom:3rem; }
+.footer .logo{ margin-bottom:1rem; }
+.footer p{ font-size:.93rem; max-width:22rem; }
+.footer h4{ color:var(--cream-txt); font-size:.85rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:1.1rem; }
+.footer ul{ list-style:none; display:grid; gap:.55rem; }
+.footer a{ color:var(--muted-dk); text-decoration:none; font-size:.93rem; transition:color .25s; }
+.footer a:hover{ color:var(--accent); }
+.footer .urgent{ color:var(--accent); font-weight:800; }
+.footer-bottom{
+  border-top:1px solid var(--ink-3); padding-top:1.8rem; display:flex; flex-wrap:wrap;
+  justify-content:space-between; gap:1rem; font-size:.84rem;
+}
+.footer-bottom a{ font-weight:700; }
+
+/* ═══════════════ 15. BARRE D'APPEL FIXE MOBILE ═══════════════ */
+.callbar{
+  position:fixed; left:0; right:0; bottom:0; z-index:110; display:none;
+  grid-template-columns:1fr 1fr; gap:1px; background:var(--ink-3);
+  border-top:1px solid var(--ink-3); box-shadow:0 -10px 30px rgba(0,0,0,.35);
+}
+.callbar a{
+  display:flex; align-items:center; justify-content:center; gap:.55rem;
+  padding:1.05rem .5rem; font-weight:800; font-size:1rem; text-decoration:none;
+}
+.callbar a svg{ width:19px; height:19px; }
+.callbar-tel{ background:var(--ink); color:var(--cream-txt); }
+.callbar-devis{ background:var(--accent); color:var(--ink); }
+
+/* ═══════════════ 16. RESPONSIVE ═══════════════ */
+@media (max-width: 1024px){
+  .hero .wrap{ grid-template-columns:1fr; gap:4.5rem; }
+  .hero-photo{ min-height:400px; border-radius:120px 120px var(--radius) var(--radius); }
+  .why .wrap{ grid-template-columns:1fr; gap:3rem; }
+  .why-photo{ min-height:340px; }
+  .works-grid{ grid-template-columns:1fr; }
+  .work-cards{ grid-template-columns:1fr 1fr; }
+  .reviews-grid{ grid-template-columns:1fr; }
+  .review--big{ grid-row:auto; }
+  .zone .wrap{ grid-template-columns:1fr; }
+  .quote-card{ grid-template-columns:1fr; }
+  .services-head{ grid-template-columns:1fr; }
+  .svc-grid{ grid-template-columns:1fr 1fr; }
+  .svc--hero{ grid-column:span 2; }
+}
+@media (max-width: 860px){
+  .nav, .header-cta .btn{ display:none; }
+  .burger{ display:block; }
+  .callbar{ display:grid; }
+  body{ padding-bottom:62px; }
+  .footer{ padding-bottom:5rem; }
+}
+@media (max-width: 640px){
+  body{ font-size:1rem; }
+  .hero{ padding:7.5rem 0 4.5rem; }
+  .hero-photo{ min-height:320px; }
+  .badge-spin{ width:118px; height:118px; bottom:-26px; left:-8px; }
+  .hero-card{ right:0; }
+  .svc-grid{ grid-template-columns:1fr; }
+  .svc--hero{ grid-column:span 1; grid-template-columns:1fr; }
+  .counters{ grid-template-columns:1fr 1fr; gap:1.6rem; }
+  .work-cards{ grid-template-columns:1fr; }
+  .ba{ min-height:380px; }
+  .field-row{ grid-template-columns:1fr; }
+  .quote-info, .quote-form{ padding:2.2rem 1.6rem; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .header-tel span{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ 1. HEADER COLLANT ═══════════ -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Électricité Cochard — retour en haut">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A2E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      </span>
+      Électricité&nbsp;Cochard
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#zone">Zone</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-tel" href="tel:+33671019026" aria-label="Appeler le 06 71 01 90 26">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        <span>06&nbsp;71&nbsp;01&nbsp;90&nbsp;26</span>
+      </a>
+      <a class="btn btn--fire" href="#devis">Devis gratuit</a>
+    </div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+  <a href="#services">Services</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#engagements">Nos engagements</a>
+  <a href="#zone">Zone d'intervention</a>
+  <a href="#devis">Devis gratuit</a>
+</nav>
+
+<main id="top">
+
+  <!-- ═══════════ 2. HÉROS ═══════════ -->
+  <section class="hero">
+    <div class="hero-ghost" aria-hidden="true">MONTÉLIMAR</div>
+    <div class="wrap">
+      <div>
+        <p class="hero-eyebrow reveal" data-animate="fade-up">Électricien à Montélimar depuis 2007</p>
+        <h1 class="reveal" data-animate="fade-up" data-delay="0.08">
+          Électricien certifié à Montélimar, <em>dans les règles de l'art.</em>
+        </h1>
+        <p class="hero-sub reveal" data-animate="fade-up" data-delay="0.16">
+          Installation, rénovation, dépannage, mise aux normes&nbsp;: <strong>19&nbsp;ans de savoir-faire</strong> au
+          service de votre sécurité électrique. Certifié réseau Legrand, devis gratuit avant chaque chantier.
+        </p>
+        <div class="hero-ctas reveal" data-animate="fade-up" data-delay="0.24">
+          <a class="btn btn--fire" href="#devis">Demander un devis gratuit
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost-dk" href="tel:+33671019026">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+            06&nbsp;71&nbsp;01&nbsp;90&nbsp;26
+          </a>
+        </div>
+        <div class="hero-proof reveal" data-animate="fade-up" data-delay="0.32">
+          <span class="proof-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> <b>Certifié</b>&nbsp;réseau Legrand</span>
+          <span class="proof-item"><b>19&nbsp;ans</b>&nbsp;d'expérience</span>
+          <span class="proof-item"><b>Devis</b>&nbsp;gratuit</span>
+        </div>
+      </div>
+      <div class="hero-media reveal" data-animate="zoom" data-delay="0.2">
+        <div class="ph ph--dark hero-photo" role="img" aria-label="Photo : l'électricien au travail sur un chantier" data-label="PHOTO : l'artisan au travail (portrait chantier, plan taille)"></div>
+        <div class="hero-card">
+          <span class="big">19</span>
+          <span>ans à votre<br>service</span>
+        </div>
+        <!-- sceau tournant signature -->
+        <div class="badge-spin" aria-hidden="true">
+          <svg class="ring" viewBox="0 0 120 120">
+            <defs><path id="circPath" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
+            <text><textPath href="#circPath">DEVIS GRATUIT • CERTIFIÉ LEGRAND • DEVIS GRATUIT •</textPath></text>
+          </svg>
+          <span class="disc" style="inset:26px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 3. BANDEAU DE CONFIANCE ═══════════ -->
+  <div class="trust" aria-label="Certifications et garanties">
+    <div class="trust-track">
+      <!-- piste dupliquée pour le défilement infini -->
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Certifié réseau Legrand</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Électricien depuis 2007</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Devis gratuit</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Mise aux normes NF C 15-100</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>Montélimar et alentours</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Certifié réseau Legrand</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Électricien depuis 2007</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Devis gratuit</span>
+      <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Mise aux normes NF C 15-100</span>
+    </div>
+  </div>
+
+  <!-- ═══════════ 4. SERVICES ═══════════ -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="services-head">
+        <div>
+          <span class="kicker reveal" data-animate="fade-up"><span class="n">(01)</span> Nos services</span>
+          <h2 class="sec-title reveal" data-animate="fade-up" data-delay="0.08">Un électricien, <em>tous vos travaux</em> d'électricité.</h2>
+        </div>
+        <p class="reveal" data-animate="fade-up" data-delay="0.16">
+          De la panne au tableau électrique en passant par la mise aux normes&nbsp;: un seul
+          interlocuteur, des tarifs annoncés avant le chantier, jamais après.
+        </p>
+      </div>
+      <div class="svc-grid">
+        <!-- carte vedette -->
+        <article class="svc svc--hero reveal" data-animate="fade-up">
+          <div>
+            <span class="tag">Intervention rapide</span>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            </div>
+            <h3>Dépannage</h3>
+            <p>Panne électrique, disjoncteur qui saute, coupure de courant&nbsp;? On intervient
+            rapidement pour diagnostiquer et sécuriser votre installation, avec un prix annoncé avant de commencer.</p>
+            <a class="u-link" href="tel:+33671019026" style="color:var(--accent)">Appeler maintenant → 06&nbsp;71&nbsp;01&nbsp;90&nbsp;26</a>
+          </div>
+          <div class="ph ph--dark" role="img" aria-label="Photo : intervention de dépannage électrique en cours" data-label="PHOTO : dépannage en cours (mains + outil, gros plan)"></div>
+        </article>
+
+        <article class="svc reveal" data-animate="fade-up" data-delay="0.08">
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
+          </div>
+          <h3>Installation électrique</h3>
+          <p>Installations neuves pour constructions, extensions ou pièces réaménagées, réalisées
+          selon les règles de l'art et un devis clair avant travaux.</p>
+          <a class="u-link" href="#devis">Estimer mon projet</a>
+        </article>
+
+        <article class="svc reveal" data-animate="fade-up" data-delay="0.16">
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a5 5 0 0 0-6.9 6.9L3 18v3h3l4.8-4.8a5 5 0 0 0 6.9-6.9l-3.2 3.2-2.5-.5-.5-2.5 3.2-3.2z"/></svg>
+          </div>
+          <h3>Rénovation électrique</h3>
+          <p>Remise à niveau complète ou partielle d'une installation existante&nbsp;: câblage,
+          prises, tableau — pour un logement plus sûr et plus confortable.</p>
+          <a class="u-link" href="#realisations">Voir les réalisations</a>
+        </article>
+
+        <article class="svc reveal" data-animate="fade-up" data-delay="0.08">
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Mise aux normes</h3>
+          <p>Diagnostic de votre installation et mise en conformité avec la norme NF C 15-100,
+          pour votre sécurité et celle de vos occupants.</p>
+          <a class="u-link" href="#devis">Demander un diagnostic</a>
+        </article>
+
+        <article class="svc reveal" data-animate="fade-up" data-delay="0.16">
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="7" x2="8" y2="11"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="16" y1="7" x2="16" y2="11"/><line x1="8" y1="15" x2="8" y2="19"/><line x1="12" y1="15" x2="12" y2="19"/><line x1="16" y1="15" x2="16" y2="19"/></svg>
+          </div>
+          <h3>Tableau électrique</h3>
+          <p>Remplacement ou mise à niveau de votre tableau électrique, avec du matériel
+          certifié réseau Legrand pour une installation fiable et durable.</p>
+          <a class="u-link" href="#devis">Changer mon tableau</a>
+        </article>
+
+        <article class="svc reveal" data-animate="fade-up" data-delay="0.24">
+          <div class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.4 1.2 3.9 2.4 5.1.8.8 1.6 1.6 1.8 2.9h5.6c.2-1.3 1-2.1 1.8-2.9C17.8 12.9 19 11.4 19 9a7 7 0 0 0-7-7Z"/></svg>
+          </div>
+          <h3>Éclairage</h3>
+          <p>Conception et pose d'éclairages intérieurs et extérieurs, spots, appliques et
+          détecteurs — pour valoriser chaque pièce et réduire votre consommation.</p>
+          <a class="u-link" href="#devis">Étudier mon éclairage</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 5. POURQUOI NOUS + COMPTEURS ═══════════ -->
+  <section class="why" id="pourquoi">
+    <div class="wrap">
+      <div class="reveal" data-animate="zoom">
+        <div class="ph ph--dark why-photo" role="img" aria-label="Photo : l'électricien devant son véhicule d'intervention" data-label="PHOTO : l'artisan devant sa camionnette (portrait, sourire)"></div>
+      </div>
+      <div>
+        <span class="kicker reveal" data-animate="fade-up" style="color:var(--cream-txt)"><span class="n">(02)</span> Pourquoi nous</span>
+        <h2 class="sec-title reveal" data-animate="fade-up" data-delay="0.08">Une installation électrique, <em>ça ne s'improvise pas.</em></h2>
+        <p class="lead reveal" data-animate="fade-up" data-delay="0.14">
+          Électricité Cochard intervient à Montélimar depuis 2007. Certifié réseau Legrand,
+          l'entreprise met son expérience au service d'installations sûres et durables, avec un
+          devis clair avant chaque chantier.
+        </p>
+        <div class="why-args">
+          <div class="why-arg reveal" data-animate="fade-up" data-delay="0.1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <div><b>Devis clair, prix ferme</b><span>Un devis gratuit avant toute intervention, sans surprise en fin de chantier.</span></div>
+          </div>
+          <div class="why-arg reveal" data-animate="fade-up" data-delay="0.18">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div><b>Certifié réseau Legrand</b><span>Du matériel et des méthodes conformes aux standards du réseau Legrand.</span></div>
+          </div>
+          <div class="why-arg reveal" data-animate="fade-up" data-delay="0.26">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><b>19 ans d'expérience à Montélimar</b><span>Une connaissance fine du bâti local et des besoins des particuliers et professionnels.</span></div>
+          </div>
+        </div>
+        <div class="counters">
+          <div class="counter-box reveal" data-animate="fade-up">
+            <div class="num"><span class="counter" data-count="19">0</span>&nbsp;ans</div>
+            <div class="lbl">d'expérience</div>
+          </div>
+          <div class="counter-box reveal" data-animate="fade-up" data-delay="0.08">
+            <div class="num"><span class="counter" data-count="6">0</span></div>
+            <div class="lbl">domaines d'intervention</div>
+          </div>
+          <div class="counter-box reveal" data-animate="fade-up" data-delay="0.16">
+            <div class="num" style="font-size:clamp(1.3rem,2.4vw,1.9rem)">Legrand</div>
+            <div class="lbl">Certifié réseau</div>
+          </div>
+          <div class="counter-box reveal" data-animate="fade-up" data-delay="0.24">
+            <div class="num" style="font-size:clamp(1.3rem,2.4vw,1.9rem)">Gratuit</div>
+            <div class="lbl">Devis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 6. RÉALISATIONS + AVANT/APRÈS ═══════════ -->
+  <section class="works" id="realisations">
+    <div class="wrap">
+      <span class="kicker reveal" data-animate="fade-up"><span class="n">(03)</span> Réalisations</span>
+      <h2 class="sec-title reveal" data-animate="fade-up" data-delay="0.08">La preuve par le chantier. <em>Faites glisser.</em></h2>
+      <div class="works-grid">
+        <!-- ÉLÉMENT SIGNATURE : comparateur avant/après -->
+        <div class="ba reveal" data-animate="zoom" id="baSlider">
+          <div class="ph ba-img ba-before" role="img" aria-label="Photo avant travaux : ancien tableau électrique" data-label="PHOTO AVANT : ancien tableau électrique"></div>
+          <div class="ph ph--dark ba-img ba-after" role="img" aria-label="Photo après travaux : tableau électrique neuf aux normes" data-label="PHOTO APRÈS : tableau électrique neuf, certifié Legrand"></div>
+          <span class="ba-label ba-label--avant">Avant</span>
+          <span class="ba-label ba-label--apres">Après</span>
+          <div class="ba-handle" aria-hidden="true"></div>
+          <span class="ba-caption">Mise aux normes de tableau électrique — Montélimar</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Comparer les photos avant et après travaux">
+        </div>
+        <div class="work-cards">
+          <figure class="work-card reveal" data-animate="fade-up" data-delay="0.1">
+            <div class="ph" role="img" aria-label="Photo : installation électrique neuve" data-label="PHOTO : installation électrique neuve (câblage soigné)"></div>
+            <figcaption>Installation électrique complète<span>Montélimar — logement neuf</span></figcaption>
+          </figure>
+          <figure class="work-card reveal" data-animate="fade-up" data-delay="0.2">
+            <div class="ph" role="img" aria-label="Photo : pose d'un point d'éclairage" data-label="PHOTO : éclairage posé (spots, ambiance soignée)"></div>
+            <figcaption>Éclairage intérieur sur-mesure<span>Montélimar et alentours</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 7. NOS ENGAGEMENTS ═══════════ -->
+  <section class="reviews" id="engagements">
+    <div class="wrap">
+      <div class="reviews-head">
+        <div>
+          <span class="kicker reveal" data-animate="fade-up"><span class="n">(04)</span> Nos engagements</span>
+          <h2 class="sec-title reveal" data-animate="fade-up" data-delay="0.08">Ce que nous <em>vous garantissons.</em></h2>
+        </div>
+        <div class="gbadge reveal" data-animate="fade-left">
+          <span class="g">⚡</span>
+          <div>
+            <span style="font-weight:800; font-size:.95rem">Certifié réseau Legrand</span>
+            <small>Électricien à Montélimar depuis 2007</small>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <article class="review review--big reveal" data-animate="fade-up">
+          <blockquote>
+            Un devis <em>gratuit et détaillé</em> avant chaque intervention, un matériel
+            certifié réseau Legrand, et 19 ans d'expérience à Montélimar. Notre priorité&nbsp;:
+            une installation électrique sûre, faite dans les règles de l'art.
+          </blockquote>
+          <div class="review-meta">
+            <span class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A2E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            </span>
+            <div><b>Électricité Cochard</b><span>Montélimar — depuis 2007</span></div>
+          </div>
+        </article>
+        <div class="review-side">
+          <article class="review reveal" data-animate="fade-up" data-delay="0.1">
+            <div class="svc-icon" aria-hidden="true" style="margin-bottom:1rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <blockquote>Certifié réseau Legrand&nbsp;: du matériel fiable et des méthodes
+            conformes aux standards du fabricant.</blockquote>
+          </article>
+          <article class="review reveal" data-animate="fade-up" data-delay="0.2">
+            <div class="svc-icon" aria-hidden="true" style="margin-bottom:1rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            </div>
+            <blockquote>Devis gratuit et sans engagement, transmis avant le début de
+            chaque chantier.</blockquote>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 8. ZONE D'INTERVENTION ═══════════ -->
+  <section class="zone" id="zone">
+    <div class="wrap">
+      <div>
+        <span class="kicker reveal" data-animate="fade-up" style="color:var(--cream-txt)"><span class="n">(05)</span> Zone d'intervention</span>
+        <h2 class="sec-title reveal" data-animate="fade-up" data-delay="0.08">Montélimar <em>et ses alentours.</em></h2>
+        <p class="lead reveal" data-animate="fade-up" data-delay="0.14">
+          Basés au 13 Allée Paul Besson à Montélimar, nous intervenons en ville
+          et dans les alentours pour vos travaux d'électricité.
+        </p>
+        <div class="chips reveal" data-animate="fade-up" data-delay="0.2">
+          <a class="chip chip--main" href="#devis">Montélimar</a>
+          <a class="chip" href="#devis">Sauzet</a>
+          <a class="chip" href="#devis">Allan</a>
+          <a class="chip" href="#devis">Châteauneuf-du-Rhône</a>
+          <a class="chip" href="#devis">Ancône</a>
+          <a class="chip" href="#devis">Rochemaure</a>
+          <a class="chip" href="#devis">Malataverne</a>
+          <a class="chip" href="#devis">Montboucher-sur-Jabron</a>
+          <span class="chip chip--static">+ alentours</span>
+        </div>
+      </div>
+      <div class="radar reveal" data-animate="zoom" aria-hidden="true">
+        <svg viewBox="-40 -40 480 480" fill="none">
+          <circle cx="200" cy="200" r="185" stroke="#1E4A50" stroke-width="1.5" stroke-dasharray="4 7"/>
+          <circle cx="200" cy="200" r="135" stroke="#1E4A50" stroke-width="1.5" stroke-dasharray="4 7"/>
+          <circle cx="200" cy="200" r="85" stroke="#1E4A50" stroke-width="1.5" stroke-dasharray="4 7"/>
+          <circle class="ring-a" cx="200" cy="200" r="160" stroke="#D9823F" stroke-width="1.5" opacity=".5"/>
+          <circle class="ring-b" cx="200" cy="200" r="160" stroke="#D9823F" stroke-width="1.5" opacity=".5"/>
+          <circle cx="200" cy="200" r="7" fill="#D9823F"/>
+          <!-- points de couverture répartis à angles réguliers (60°) autour de Montélimar,
+               chaque point posé sur l'anneau médian ; libellé aligné sur le même rayon,
+               ancrage start/end/middle selon le quadrant pour ne jamais chevaucher un voisin -->
+          <line x1="200" y1="65"  x2="200" y2="30"  stroke="#1E4A50" stroke-width="1"/>
+          <circle cx="200" cy="65" r="5" fill="#9BB4B0"/>
+          <text class="radar-label" x="200" y="20" text-anchor="middle">Montboucher-sur-Jabron</text>
+
+          <line x1="316.9" y1="132.5" x2="345.6" y2="117.5" stroke="#1E4A50" stroke-width="1"/>
+          <circle cx="316.9" cy="132.5" r="5" fill="#9BB4B0"/>
+          <text class="radar-label" x="351.6" y="116.5" text-anchor="start">Ancône</text>
+
+          <line x1="316.9" y1="267.5" x2="345.6" y2="282.5" stroke="#1E4A50" stroke-width="1"/>
+          <circle cx="316.9" cy="267.5" r="5" fill="#9BB4B0"/>
+          <text class="radar-label" x="351.6" y="291.5" text-anchor="start">Sauzet</text>
+
+          <line x1="200" y1="335" x2="200" y2="365" stroke="#1E4A50" stroke-width="1"/>
+          <circle cx="200" cy="335" r="5" fill="#9BB4B0"/>
+          <text class="radar-label" x="200" y="380" text-anchor="middle">Châteauneuf-du-Rhône</text>
+
+          <line x1="83.1" y1="267.5" x2="54.4" y2="282.5" stroke="#1E4A50" stroke-width="1"/>
+          <circle cx="83.1" cy="267.5" r="5" fill="#9BB4B0"/>
+          <text class="radar-label" x="48.4" y="291.5" text-anchor="end">Allan</text>
+
+          <line x1="83.1" y1="132.5" x2="54.4" y2="117.5" stroke="#1E4A50" stroke-width="1"/>
+          <circle cx="83.1" cy="132.5" r="5" fill="#9BB4B0"/>
+          <text class="radar-label" x="48.4" y="116.5" text-anchor="end">Rochemaure</text>
+        </svg>
+        <span class="radar-pin">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 0 0 1.4 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
+        </span>
+        <span class="radar-city">MONTÉLIMAR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 9. BLOC DEVIS — LE point de conversion ═══════════ -->
+  <section class="quote" id="devis">
+    <div class="wrap">
+      <div class="quote-card reveal" data-animate="fade-up">
+        <div class="quote-info">
+          <span class="kicker" style="color:var(--cream-txt)"><span class="n">(06)</span> Votre devis</span>
+          <h2>Parlez-nous de votre projet. <em>Devis gratuit.</em></h2>
+          <p>Décrivez votre besoin en deux lignes — on vous rappelle avec des
+          premières réponses concrètes, et un devis détaillé si besoin.</p>
+          <a class="quote-tel" href="tel:+33671019026">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+            <span>06&nbsp;71&nbsp;01&nbsp;90&nbsp;26<small>Électricité Cochard — Montélimar</small></span>
+          </a>
+          <ul class="guarantees">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Devis gratuit et détaillé</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Certifié réseau Legrand</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sans engagement</li>
+          </ul>
+        </div>
+        <!-- FORMULAIRE : mailto vers un email PLACEHOLDER à confirmer par le client — voir bloc de commentaires en tête de fichier -->
+        <form class="quote-form" id="quoteForm" novalidate>
+          <h3>Demande de devis gratuit</h3>
+          <p class="hint">3 champs, 30 secondes. On s'occupe du reste.</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-nom">Votre nom</label>
+              <input id="f-nom" name="nom" type="text" autocomplete="name" required placeholder="Ex : Martin Dupont">
+            </div>
+            <div class="field">
+              <label for="f-tel">Votre téléphone</label>
+              <input id="f-tel" name="tel" type="tel" autocomplete="tel" required placeholder="Ex : 06 12 34 56 78">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-projet">Votre projet</label>
+            <select id="f-projet" name="projet" required>
+              <option value="" disabled selected>Choisir…</option>
+              <option>Installation électrique</option>
+              <option>Rénovation électrique</option>
+              <option>Dépannage</option>
+              <option>Mise aux normes</option>
+              <option>Tableau électrique</option>
+              <option>Éclairage</option>
+              <option>Autre projet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Dites-nous en plus <span style="text-transform:none;font-weight:600;color:var(--muted-lt)">(facultatif)</span></label>
+            <textarea id="f-msg" name="message" placeholder="Ex : mon tableau électrique date des années 80, je veux le mettre aux normes…"></textarea>
+          </div>
+          <button class="btn btn--fire" type="submit">Recevoir mon devis gratuit
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-success" id="formSuccess" role="status">✓ Merci&nbsp;! Votre messagerie va s'ouvrir pour finaliser l'envoi. Nous vous recontactons rapidement.</p>
+          <p class="form-note">Vos coordonnées servent uniquement à vous recontacter. Jamais de démarchage.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════ 10. FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#top">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A2E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </span>
+          Électricité&nbsp;Cochard
+        </a>
+        <p>Électricien à Montélimar depuis 2007. Certifié réseau Legrand,
+        devis gratuit pour tous vos travaux d'installation, de rénovation et de mise aux normes électriques.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+33671019026">06 71 01 90 26</a></li>
+          <li><a href="mailto:EMAIL_A_CONFIRMER@exemple.fr">EMAIL_A_CONFIRMER@exemple.fr</a></li>
+          <li>13 Allée Paul Besson<br>26200 Montélimar</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Garanties</h4>
+        <ul>
+          <li>Certifié réseau Legrand</li>
+          <li>Devis gratuit</li>
+          <li class="urgent">Depuis 2007</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="#engagements">Nos engagements</a></li>
+          <li><a href="#devis">Devis gratuit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Électricité Cochard — SIRET à compléter — Mentions légales</span>
+      <span>Site réalisé par <a href="mailto:contact@aveio.fr" class="u-link">aveio</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ 11. BARRE D'APPEL FIXE MOBILE ═══════════ -->
+<div class="callbar" role="navigation" aria-label="Actions rapides">
+  <a class="callbar-tel" href="tel:+33671019026">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+    Appeler
+  </a>
+  <a class="callbar-devis" href="#devis">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    Devis gratuit
+  </a>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════
+   INTERACTIONS — hooks GSAP-ready : .reveal / data-animate / data-delay
+   ════════════════════════════════════════════════ */
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* — scroll fluide personnalisé vers les ancres (#devis, #services, …) —
+     remplace le scroll-behavior:smooth natif du navigateur, trop rapide et non réglable */
+  var HEADER_OFFSET = 96;
+  var SCROLL_DURATION = 900; // ms — augmenter/diminuer pour ajuster la vitesse
+  function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+  var scrollRunId = 0; // annule toute animation de scroll précédente encore en cours
+  function smoothScrollTo(targetY){
+    var myRun = ++scrollRunId;
+    var startY = window.scrollY;
+    var diff = targetY - startY;
+    var startTime = null;
+    function step(timestamp){
+      if (myRun !== scrollRunId) return; // une nouvelle navigation a pris le relais
+      if (startTime === null) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / SCROLL_DURATION, 1);
+      /* forme scrollTo(x, y) plutôt que l'objet {top,behavior} — Safari gère mal
+         ce dernier en boucle rAF et introduit son propre lissage, ce qui casse
+         l'animation en à-coups */
+      window.scrollTo(0, startY + diff * easeOutCubic(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener("click", function(e){
+      var id = link.getAttribute("href").slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      if (reduceMotion) { target.scrollIntoView(); return; }
+      var targetY = Math.max(0, target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET);
+      smoothScrollTo(targetY);
+      history.pushState(null, "", "#" + id);
+    });
+  });
+
+  /* — header collant — */
+  var header = document.getElementById("header");
+  function onScrollHeader(){ header.classList.toggle("is-scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScrollHeader, { passive:true });
+  onScrollHeader();
+
+  /* — texte fantôme du héros : recalcule la taille pour que le mot entier reste visible,
+     quelle que soit la longueur de {VILLE} — */
+  var ghost = document.querySelector(".hero-ghost");
+  function fitGhostText(){
+    if (!ghost) return;
+    ghost.style.fontSize = "";
+    var available = ghost.parentElement.getBoundingClientRect().width;
+    var actual = ghost.scrollWidth;
+    if (actual > available) {
+      var base = parseFloat(getComputedStyle(ghost).fontSize);
+      ghost.style.fontSize = (base * (available / actual)) + "px";
+    }
+  }
+  fitGhostText();
+  var ghostResizeTimer;
+  window.addEventListener("resize", function(){
+    clearTimeout(ghostResizeTimer);
+    ghostResizeTimer = setTimeout(fitGhostText, 150);
+  });
+
+  /* — menu mobile — */
+  var burger = document.getElementById("burger");
+  var menu = document.getElementById("mobileMenu");
+  burger.addEventListener("click", function(){
+    var open = menu.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      menu.classList.remove("is-open");
+      burger.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  /* — révélations au scroll — */
+  var revealEls = document.querySelectorAll(".reveal");
+  revealEls.forEach(function(el){
+    var d = el.getAttribute("data-delay");
+    if (d) el.style.setProperty("--d", d + "s");
+  });
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      });
+    }, { threshold:.12, rootMargin:"0px 0px -8% 0px" });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  /* — compteurs animés — */
+  function animateCounter(el){
+    var target = parseFloat(el.getAttribute("data-count"));
+    var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    if (reduceMotion) { el.textContent = target.toLocaleString("fr-FR", { minimumFractionDigits:decimals }); return; }
+    var dur = 1600, t0 = null;
+    function step(ts){
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toLocaleString("fr-FR", { minimumFractionDigits:decimals, maximumFractionDigits:decimals });
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = document.querySelectorAll(".counter");
+  if ("IntersectionObserver" in window) {
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { animateCounter(e.target); cio.unobserve(e.target); }
+      });
+    }, { threshold:.6 });
+    counters.forEach(function(el){ cio.observe(el); });
+  } else {
+    counters.forEach(animateCounter);
+  }
+
+  /* — comparateur avant/après (signature) — */
+  var ba = document.getElementById("baSlider");
+  if (ba) {
+    var range = ba.querySelector(".ba-range");
+    function setPos(pct){
+      pct = Math.max(0, Math.min(100, pct));
+      ba.style.setProperty("--pos", pct + "%");
+      range.value = pct;
+    }
+    range.addEventListener("input", function(){ setPos(parseFloat(range.value)); });
+    ba.addEventListener("pointerdown", function(ev){
+      if (ev.target === range) return;
+      ba.setPointerCapture(ev.pointerId);
+      var rect = ba.getBoundingClientRect();
+      function move(e){ setPos(((e.clientX - rect.left) / rect.width) * 100); }
+      move(ev);
+      ba.addEventListener("pointermove", move);
+      ba.addEventListener("pointerup", function up(){
+        ba.removeEventListener("pointermove", move);
+        ba.removeEventListener("pointerup", up);
+      });
+    });
+  }
+
+  /* — parallax léger sur le héros — */
+  var heroMedia = document.querySelector(".hero-media");
+  if (heroMedia && !reduceMotion && window.matchMedia("(min-width: 1024px)").matches) {
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y < 900) heroMedia.style.transform = "translateY(" + (y * 0.07) + "px)";
+    }, { passive:true });
+  }
+
+  /* — formulaire → mailto (email placeholder à confirmer, voir en-tête du fichier) — */
+  var form = document.getElementById("quoteForm");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var nom = form.nom.value.trim();
+    var tel = form.tel.value.trim();
+    var projet = form.projet.value;
+    var msg = form.message.value.trim();
+    var subject = "Demande de devis — " + projet + " — " + nom;
+    var body = "Nom : " + nom + "\nTéléphone : " + tel + "\nProjet : " + projet + (msg ? "\n\nMessage :\n" + msg : "") + "\n\n(Demande envoyée depuis le site Électricité Cochard)";
+    document.getElementById("formSuccess").classList.add("is-visible");
+    window.location.href = "mailto:EMAIL_A_CONFIRMER@exemple.fr?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
