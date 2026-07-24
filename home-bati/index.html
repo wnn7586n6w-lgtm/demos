@@ -14,7 +14,7 @@
   {METIER}      → "Artisan multi-service"     → chercher : artisan multi-service
   {VILLE}       → "Montélimar"                    → chercher : Montélimar (+ le ghost-text du héros)
   {ZONES}       → Sauzet, Allan, Châteauneuf-du-Rhône, Ancône, Rochemaure, Malataverne,
-                  Montboucher-sur-Jabron, Sauveterre    → section #zone
+                  Montboucher-sur-Jabron, Donzère    → section #zone
   {TEL}         → "04 75 51 98 95"            → chercher : 04 75 51 98 95 ET tel:+33475519895
   {EMAIL}       → "contact@home-bati.fr"  → ⚠ email générique, à confirmer avec le client
   {SERVICES}    → 6 cartes dans la section #services
@@ -969,7 +969,7 @@ a.chip:hover{ border-color:var(--accent); background:rgba(217,130,63,.1); transf
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:+33475519895">04 75 51 98 95</a></li>
-          <li><a href="mailto:contact@home-bati.fr">contact@home-bati.fr</a></li>
+          <li><a href="mailto:EMAIL_A_CONFIRMER@exemple.fr">EMAIL_A_CONFIRMER@exemple.fr</a></li>
           <li>11 route d'Espeluche<br>26200 Montélimar</li>
         </ul>
       </div>
@@ -1200,7 +1200,7 @@ a.chip:hover{ border-color:var(--accent); background:rgba(217,130,63,.1); transf
     var subject = "Demande de devis — " + projet + " — " + nom;
     var body = "Nom : " + nom + "\nTéléphone : " + tel + "\nProjet : " + projet + (msg ? "\n\nMessage :\n" + msg : "") + "\n\n(Demande envoyée depuis le site home-bati.fr)";
     document.getElementById("formSuccess").classList.add("is-visible");
-    window.location.href = "mailto:contact@home-bati.fr?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    window.location.href = "mailto:EMAIL_A_CONFIRMER@exemple.fr?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   });
 })();
 </script>
