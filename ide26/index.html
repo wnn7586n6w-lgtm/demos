@@ -955,7 +955,7 @@ a.chip:hover{ border-color:var(--accent); background:rgba(217,130,63,.1); transf
         <ul>
           <li><a href="tel:+33656867504">06 56 86 75 04</a></li>
           <!-- EMAIL provisoire : à remplacer par la vraie adresse du client -->
-          <li><a href="mailto:contact@ide26.fr">contact@ide26.fr</a></li>
+          <li><a href="mailto:EMAIL_A_CONFIRMER@exemple.fr">EMAIL_A_CONFIRMER@exemple.fr</a></li>
           <li>4 Chemin de Bellevue<br>26200 Montélimar</li>
         </ul>
       </div>
@@ -1170,7 +1170,7 @@ a.chip:hover{ border-color:var(--accent); background:rgba(217,130,63,.1); transf
     var subject = "Demande de devis — " + projet + " — " + nom;
     var body = "Nom : " + nom + "\nTéléphone : " + tel + "\nProjet : " + projet + (msg ? "\n\nMessage :\n" + msg : "") + "\n\n(Demande envoyée depuis le site ide26.fr)";
     document.getElementById("formSuccess").classList.add("is-visible");
-    window.location.href = "mailto:contact@ide26.fr?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    window.location.href = "mailto:EMAIL_A_CONFIRMER@exemple.fr?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   });
 })();
 </script>
