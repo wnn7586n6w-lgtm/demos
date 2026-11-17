@@ -48,7 +48,7 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.css">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=2000&h=1300&q=80" fetchpriority="high">
-  <link rel="stylesheet" href="style.css?v=2.6">
+  <link rel="stylesheet" href="style.css?v=2.7">
 
   <script>
     document.documentElement.classList.add('js');
@@ -128,16 +128,38 @@
 
   <!-- Menu plein écran (mobile) -->
   <div class="menu" id="menu" data-menu hidden>
-    <nav aria-label="Menu mobile">
-      <a href="#cornetto">Le cornetto</a>
-      <a href="#giornata">La giornata</a>
-      <a href="#carta">La carte</a>
-      <a href="#avis">Avis</a>
-      <a href="#venir">Venir</a>
+    <p class="menu__live" data-status>
+      <span class="status__dot" aria-hidden="true"></span>
+      <span><span data-status-text>Mar - Sam</span><span data-status-more>, 9h - 19h30</span></span>
+    </p>
+
+    <div class="menu__acts">
+      <a class="menu__act" href="tel:+33667435006">
+        <span class="menu__act-label">06 67 43 50 06</span>
+        <span class="menu__act-word">Appeler</span>
+        <i class="ph-light ph-phone" aria-hidden="true"></i>
+      </a>
+      <a class="menu__act" href="https://www.google.com/maps/dir/?api=1&amp;destination=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar" target="_blank" rel="noopener">
+        <span class="menu__act-label">2 rue Roger Poyol</span>
+        <span class="menu__act-word">Venir</span>
+        <i class="ph-light ph-arrow-up-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <nav class="menu__nav" aria-label="Menu mobile">
+      <a href="#cornetto"><span class="menu__num">01</span>Le cornetto</a>
+      <a href="#giornata"><span class="menu__num">02</span>La giornata</a>
+      <a href="#carta"><span class="menu__num">03</span>La carte</a>
+      <a href="#avis"><span class="menu__num">04</span>Les avis</a>
     </nav>
+
     <div class="menu__foot">
-      <a class="btn btn--paper" href="tel:+33667435006"><span>Appeler</span><i class="ph-light ph-phone" aria-hidden="true"></i></a>
-      <p>2 rue Roger Poyol, 26200 Montélimar</p>
+      <p>Du mardi au samedi, 9h - 19h30<br>26200 Montélimar</p>
+      <p class="menu__social">
+        <a href="https://www.instagram.com/napolicornetto/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@napoli.cornetto" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.ubereats.com/fr/store/napoli-cornetto-montelimar/LKw0uz9TXLqp-MXpumczGw" target="_blank" rel="noopener">Uber Eats</a>
+      </p>
     </div>
   </div>
 
@@ -607,17 +629,10 @@
     </div>
   </footer>
 
-  <!-- Barre d'actions mobile -->
-  <nav class="mobilebar" aria-label="Actions rapides">
-    <a href="tel:+33667435006"><i class="ph-light ph-phone" aria-hidden="true"></i>Appeler</a>
-    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar" target="_blank" rel="noopener"><i class="ph-light ph-navigation-arrow" aria-hidden="true"></i>Itinéraire</a>
-    <a href="#carta"><i class="ph-light ph-fork-knife" aria-hidden="true"></i>La carte</a>
-  </nav>
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=2.6" defer></script>
+  <script src="main.js?v=2.7" defer></script>
 </body>
 </html>

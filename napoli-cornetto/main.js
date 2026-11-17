@@ -129,7 +129,12 @@
     if (lenis) open ? lenis.stop() : lenis.start();
     document.body.style.overflow = open ? 'hidden' : '';
     if (open && animate) {
-      gsap.fromTo($$('nav a', menu), { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.8, ease: 'expo.out', stagger: 0.05 });
+      gsap.timeline({ defaults: { ease: 'expo.out' } })
+        .fromTo(menu, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 0.7, ease: 'expo.inOut', clearProps: 'clipPath' })
+        .fromTo($$('.menu__live, .menu__acts', menu), { opacity: 0 }, { opacity: 1, duration: 0.6 }, '-=0.25')
+        .fromTo($$('.menu__act-word', menu), { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.9, stagger: 0.08 }, '<')
+        .fromTo($$('.menu__nav a', menu), { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.8, stagger: 0.05 }, '-=0.7')
+        .fromTo($$('.menu__foot', menu), { opacity: 0 }, { opacity: 1, duration: 0.6 }, '-=0.5');
     }
   }
   burger.addEventListener('click', () => setMenu(!menuOpen));
