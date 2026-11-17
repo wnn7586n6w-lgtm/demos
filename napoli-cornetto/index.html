@@ -1,0 +1,623 @@
+<!doctype html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  NAPOLI Cornetto · croissanterie italienne · Montélimar               ║
+  ║  Site vitrine one-page réalisé par aveio (v2 « maison »)              ║
+  ╠══════════════════════════════════════════════════════════════════════╣
+  ║  ⚠️ À CONFIRMER AVEC LE CLIENT AVANT MISE EN LIGNE                     ║
+  ║  1. Horaires : main.js > CONFIG.hours (sources : 18h / 19h / 19h30)   ║
+  ║     + les lignes "Horaires" de #venir et du footer + JSON-LD          ║
+  ║  2. Prix : relevés sur Uber Eats, les prix boutique peuvent différer  ║
+  ║  3. Note Google 4,9 / 78 avis : relevé Google Maps du 14/11/2026     ║
+  ║  4. Avis clients (#avis) : PLACEHOLDERS, remplacer par 3 vrais avis   ║
+  ║  5. Photos : Unsplash (démo). Remplacer par les photos du client      ║
+  ║     (leur photo de couverture Uber Eats ferait un excellent hero)     ║
+  ║  6. Logo : wordmark typographique tant qu'on n'a pas le vrai logo     ║
+  ║  7. Instagram (lien trouvé sur Rankeat), email, SIRET, mentions       ║
+  ║  8. Nom de domaine : balises canonical / og:url                        ║
+  ║  Versions précédentes conservées dans _archives/                      ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NAPOLI Cornetto | Croissanterie italienne à Montélimar</title>
+  <meta name="description" content="Cornetti garnis au choix, sfogliatelle, cannoli, pâtes fraîches, pinse et focaccias. NAPOLI Cornetto, croissanterie italienne au 2 rue Roger Poyol, en plein centre de Montélimar.">
+  <meta name="theme-color" content="#f2f3e8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#10150b" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <!-- ⚠️ À renseigner une fois le domaine choisi -->
+  <!-- <link rel="canonical" href="https://www.napolicornetto.fr/"> -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="NAPOLI Cornetto">
+  <meta property="og:title" content="NAPOLI Cornetto | Le cornetto, comme à Naples">
+  <meta property="og:description" content="Croissanterie italienne au cœur de Montélimar : cornetti garnis au choix, douceurs napolitaines, pâtes fraîches et pinse.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232c3d18'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Didot,Bodoni 72,Bodoni MT,serif' font-size='44' font-weight='700' fill='%23f2f3e8'%3EN%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Geist:wght@300..700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.css">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=2000&h=1300&q=80" fetchpriority="high">
+  <link rel="stylesheet" href="style.css?v=2.6">
+
+  <script>
+    document.documentElement.classList.add('js');
+    try { if (sessionStorage.getItem('nc-seen')) document.documentElement.classList.add('no-loader'); } catch (e) {}
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["CafeOrCoffeeShop", "Bakery"],
+    "name": "NAPOLI Cornetto",
+    "description": "Croissanterie italienne à Montélimar : cornetti garnis au choix, pâtisseries napolitaines, pâtes fraîches, pinse et focaccias.",
+    "image": "https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=1200&h=630&q=80",
+    "telephone": "+33667435006",
+    "priceRange": "€-€€",
+    "servesCuisine": ["Italienne", "Napolitaine", "Pâtisserie", "Viennoiserie"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2 rue Roger Poyol",
+      "postalCode": "26200",
+      "addressLocality": "Montélimar",
+      "addressRegion": "Drôme",
+      "addressCountry": "FR"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:30"
+    }],
+    "sameAs": [
+      "https://www.instagram.com/napolicornetto/",
+      "https://www.tiktok.com/@napoli.cornetto"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <!-- Préchargeur : sauté en reduced-motion et à la 2e visite de la session -->
+  <div class="loader" aria-hidden="true">
+    <p class="loader__word"><span>N</span><span>A</span><span>P</span><span>O</span><span>L</span><span>I</span></p>
+    <span class="loader__rule"></span>
+    <p class="loader__sub">Cornetto, Montélimar</p>
+  </div>
+
+  <!-- ═════════════ NAVIGATION (mise en page « maison » : liens, wordmark centré, actions) ═════════════ -->
+  <header class="nav" data-nav>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#cornetto">Le cornetto</a>
+      <a href="#giornata">La giornata</a>
+      <a href="#carta">La carte</a>
+      <a href="#venir">Venir</a>
+    </nav>
+
+    <a class="brand" href="#top" aria-label="NAPOLI Cornetto, retour en haut de page">
+      <span class="brand__main">NAPOLI</span>
+      <span class="brand__sub">Cornetto</span>
+    </a>
+
+    <div class="nav__end">
+      <p class="status" data-status>
+        <span class="status__dot" aria-hidden="true"></span>
+        <span><span data-status-text>Mar - Sam</span><span class="status__more" data-status-more>, 9h - 19h30</span></span>
+      </p>
+      <a class="btn btn--line btn--sm nav__cta" href="https://www.google.com/maps/dir/?api=1&amp;destination=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar" target="_blank" rel="noopener">
+        <span>Itinéraire</span><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i>
+      </a>
+      <button class="nav__burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu" data-burger>
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu plein écran (mobile) -->
+  <div class="menu" id="menu" data-menu hidden>
+    <nav aria-label="Menu mobile">
+      <a href="#cornetto">Le cornetto</a>
+      <a href="#giornata">La giornata</a>
+      <a href="#carta">La carte</a>
+      <a href="#avis">Avis</a>
+      <a href="#venir">Venir</a>
+    </nav>
+    <div class="menu__foot">
+      <a class="btn btn--paper" href="tel:+33667435006"><span>Appeler</span><i class="ph-light ph-phone" aria-hidden="true"></i></a>
+      <p>2 rue Roger Poyol, 26200 Montélimar</p>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ═════════════ HERO : le mot NAPOLI sert de fenêtre sur la photo, puis s'ouvre au scroll ═════════════ -->
+    <section class="hero" id="top" data-hero aria-labelledby="hero-title">
+      <!-- PHOTO CLIENT : plein cadre, paysage 16:10, 2400px de large min. Leur photo de couverture Uber Eats (assiettes en majolique) est idéale. -->
+      <img class="hero__img grade" data-hero-img
+           src="https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=2000&h=1300&q=80"
+           srcset="https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=1000&h=1400&q=78 1000w,
+                   https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=2000&h=1300&q=80 2000w,
+                   https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=2800&h=1800&q=80 2800w"
+           sizes="100vw" width="2000" height="1300" fetchpriority="high"
+           alt="Cornetti dorés alignés sur une plaque de cuisson">
+      <div class="hero__veil" data-hero-veil aria-hidden="true"></div>
+
+      <svg class="hero__mask" data-hero-mask aria-hidden="true" focusable="false">
+        <defs>
+          <mask id="napoli-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+            <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+            <text class="hero__word" data-hero-word x="50%" y="50%" text-anchor="middle" dominant-baseline="central" letter-spacing="-0.015em" fill="#000">NAPOLI</text>
+          </mask>
+        </defs>
+        <rect class="hero__paper" x="0" y="0" width="100%" height="100%" mask="url(#napoli-mask)"/>
+      </svg>
+
+      <div class="hero__ui" data-hero-ui>
+        <div class="hero__top">
+          <p class="label">Croissanterie italienne</p>
+          <p class="label">Montélimar, rue Roger Poyol</p>
+        </div>
+        <div class="hero__bottom">
+          <h1 class="hero__title" id="hero-title">Le cornetto, <em>comme à Naples.</em></h1>
+          <div class="hero__side">
+            <p class="hero__lead">Cornetti garnis au choix, douceurs napolitaines, pâtes fraîches et pinse, en plein centre de Montélimar.</p>
+            <div class="hero__ctas">
+              <a class="btn btn--ink" href="#carta"><span>Voir la carte</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+              <a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar" target="_blank" rel="noopener"><span>Itinéraire</span><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__caption" data-hero-caption aria-hidden="true">
+        <p class="hero__caption-big">Il cornetto <em>vi aspetta.</em></p>
+        <p class="hero__caption-small" data-status><span class="status__dot"></span><span data-status-long>Du mardi au samedi, dès 9h.</span></p>
+      </div>
+    </section>
+
+    <!-- ═════════════ MANIFESTE : texte qui se révèle mot à mot, photos dans la ligne ═════════════ -->
+    <section class="manifesto wrap" aria-label="Notre maison">
+      <p class="manifesto__text" data-manifesto>
+        Un cornetto
+        <span class="inline-img" aria-hidden="true"><img class="grade" src="https://images.unsplash.com/photo-1710242835722-49f4e8a05fb6?auto=format&fit=crop&w=320&h=220&q=75" width="320" height="220" loading="lazy" alt=""></span>
+        doré, garni de la crème de votre choix. Une sfogliatella
+        <span class="inline-img" aria-hidden="true"><img class="grade" src="https://images.unsplash.com/photo-1790543006977-5693d3fdf4c8?auto=format&fit=crop&w=320&h=220&q=75" width="320" height="220" loading="lazy" alt=""></span>
+        qui craque sous la dent, un café
+        <span class="inline-img" aria-hidden="true"><img class="grade" src="https://images.unsplash.com/photo-1511495069777-323685717483?auto=format&fit=crop&w=320&h=220&q=75" width="320" height="220" loading="lazy" alt=""></span>
+        bien serré. Rue Roger Poyol, on prend le petit-déjeuner <em>comme à Naples.</em>
+      </p>
+    </section>
+
+    <!-- ═════════════ IL CORNETTO : configurateur de garniture (élément signature) ═════════════ -->
+    <section class="cornetto" id="cornetto" data-cornetto aria-labelledby="cornetto-title">
+      <div class="cornetto__grid wrap">
+        <div class="cornetto__intro">
+          <p class="label">Il cornetto</p>
+          <h2 class="h2" id="cornetto-title" data-split>Choisissez votre garniture.</h2>
+          <p class="lead">Pâte feuilletée dorée, crème pâtissière, puis la garniture de votre choix.</p>
+
+          <div class="fillings" role="group" aria-label="Garnitures du cornetto">
+            <button type="button" class="filling is-active" aria-pressed="true" data-fill="pistache">Pistache</button>
+            <button type="button" class="filling" aria-pressed="false" data-fill="nutella">Nutella</button>
+            <button type="button" class="filling" aria-pressed="false" data-fill="noisette">Noisette</button>
+            <button type="button" class="filling" aria-pressed="false" data-fill="speculoos">Spéculoos</button>
+            <button type="button" class="filling" aria-pressed="false" data-fill="kinder">Kinder Bueno</button>
+            <button type="button" class="filling" aria-pressed="false" data-fill="kitkat">Kit Kat</button>
+            <button type="button" class="filling" aria-pressed="false" data-fill="oreo">Oreo</button>
+          </div>
+          <p class="cornetto__note">Et d'autres garnitures à découvrir au comptoir.</p>
+        </div>
+
+        <div class="cornetto__stage" data-stage>
+          <p class="cornetto__word" aria-hidden="true"><span data-word>Pistache</span></p>
+          <div class="plate">
+            <!-- PHOTO CLIENT : cornetto détouré sur fond blanc pur, carré, 1200x1200 -->
+            <img src="https://images.unsplash.com/photo-1691480162735-9b91238080f6?auto=format&fit=crop&w=900&h=900&q=80"
+                 width="900" height="900" loading="lazy" data-plate
+                 alt="Cornetto doré, vu de profil">
+          </div>
+          <div class="cornetto__meta">
+            <p class="cornetto__desc" data-desc aria-live="polite">Crème de pistache onctueuse, pour les puristes.</p>
+            <p class="cornetto__price"><span>4,60&nbsp;€</span><small>le cornetto garni</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ LA GIORNATA : scroll horizontal épinglé ═════════════ -->
+    <section class="giornata" id="giornata" data-giornata aria-labelledby="giornata-title">
+      <div class="giornata__track" data-track>
+
+        <article class="panel panel--intro">
+          <div class="panel__copy">
+            <p class="label">La giornata</p>
+            <h2 class="h2" id="giornata-title">Une journée à Naples, sans quitter Montélimar.</h2>
+            <p class="lead">Du premier café à la pause de l'après-midi, la carte suit le rythme napolitain.</p>
+          </div>
+          <figure class="panel__img panel__img--wide">
+            <img class="grade" src="https://images.unsplash.com/photo-1673598509238-6faece3a941c?auto=format&fit=crop&w=1400&h=1050&q=78"
+                 width="1400" height="1050" loading="lazy" data-pan-parallax
+                 alt="Ruelle étroite de Naples, linge suspendu entre les façades">
+          </figure>
+        </article>
+
+        <article class="panel">
+          <div class="panel__copy">
+            <h3 class="panel__word">Colazione</h3>
+            <p class="panel__when">le matin</p>
+            <p>Un cornetto, un café, et la journée peut commencer. C'est le petit-déjeuner de tout Naples.</p>
+            <ul class="panel__list">
+              <li><span>Cornetto garni</span><span>4,60&nbsp;€</span></li>
+              <li><span>Brioche feuilletée pistache</span><span>5,70&nbsp;€</span></li>
+              <li><span>Ice latte</span><span>5,90&nbsp;€</span></li>
+            </ul>
+          </div>
+          <figure class="panel__img panel__img--a">
+            <img class="grade" src="https://images.unsplash.com/photo-1777978404271-c6c8ad4d84ec?auto=format&fit=crop&w=900&h=1125&q=78"
+                 width="900" height="1125" loading="lazy" data-pan-parallax
+                 alt="Cornetto à la crème de pistache saupoudré de sucre glace, café en arrière-plan">
+          </figure>
+          <figure class="panel__img panel__img--b">
+            <img class="grade" src="https://images.unsplash.com/photo-1763647872237-c76e660cf38b?auto=format&fit=crop&crop=left&w=700&h=700&q=78"
+                 width="700" height="700" loading="lazy"
+                 alt="Cappuccino avec un cœur en latte art, à côté de viennoiseries">
+          </figure>
+        </article>
+
+        <article class="panel">
+          <div class="panel__copy">
+            <h3 class="panel__word">Pranzo</h3>
+            <p class="panel__when">le midi</p>
+            <p>Pâtes fraîches, pinse romaines et focaccias garnies. Le déjeuner à l'italienne, sur place ou à emporter.</p>
+            <ul class="panel__list">
+              <li><span>Pâtes carbonara</span><span>14,90&nbsp;€</span></li>
+              <li><span>Gnocchi à la truffe</span><span>18,90&nbsp;€</span></li>
+              <li><span>Focaccia Oro Verde</span><span>11,90&nbsp;€</span></li>
+            </ul>
+          </div>
+          <figure class="panel__img panel__img--a">
+            <img class="grade" src="https://images.unsplash.com/photo-1771360873707-f435ef9732ea?auto=format&fit=crop&w=900&h=1125&q=78"
+                 width="900" height="1125" loading="lazy" data-pan-parallax
+                 alt="Nids de pâtes fraîches farinés à côté d'un rouleau à pâtisserie">
+          </figure>
+          <figure class="panel__img panel__img--b">
+            <img class="grade" src="https://images.unsplash.com/photo-1764586119076-61711e8ed25a?auto=format&fit=crop&w=700&h=700&q=78"
+                 width="700" height="700" loading="lazy"
+                 alt="Spaghetti carbonara servis dans une poêle, parmesan râpé">
+          </figure>
+        </article>
+
+        <article class="panel">
+          <div class="panel__copy">
+            <h3 class="panel__word">Merenda</h3>
+            <p class="panel__when">l'après-midi</p>
+            <p>La pause sucrée des Napolitains&nbsp;: une sfogliatella, un cannolo, et un matcha glacé pour suivre.</p>
+            <ul class="panel__list">
+              <li><span>Sfogliatella</span><span>2,30&nbsp;€</span></li>
+              <li><span>Cannoli pistache-citron</span><span>2,10&nbsp;€</span></li>
+              <li><span>Matcha glacé</span><span>7,00&nbsp;€</span></li>
+            </ul>
+          </div>
+          <figure class="panel__img panel__img--a">
+            <img class="grade" src="https://images.unsplash.com/photo-1790543006977-5693d3fdf4c8?auto=format&fit=crop&w=900&h=1125&q=78"
+                 width="900" height="1125" loading="lazy" data-pan-parallax
+                 alt="Sfogliatelle saupoudrées de sucre glace sur un plateau sombre">
+          </figure>
+          <figure class="panel__img panel__img--b">
+            <img class="grade" src="https://images.unsplash.com/photo-1775846933630-3c1531299e5a?auto=format&fit=crop&w=700&h=700&q=78"
+                 width="700" height="700" loading="lazy"
+                 alt="Matcha latte glacé, lait et thé vert en deux couches avec des glaçons">
+          </figure>
+        </article>
+
+      </div>
+      <div class="giornata__progress" aria-hidden="true"><i data-progress></i></div>
+    </section>
+
+    <!-- ═════════════ LA CARTE : carte imprimée posée sur fond olive ═════════════ -->
+    <!-- ⚠️ Prix relevés sur Uber Eats (nov. 2026) : à valider, les prix en boutique peuvent être différents -->
+    <section class="carta" id="carta" aria-labelledby="carta-title">
+      <div class="carta__inner wrap">
+        <div class="carta__card" data-reveal>
+          <header class="carta__head">
+            <p class="label">La carta</p>
+            <h2 class="h2" id="carta-title" data-split>À table, ou à emporter.</h2>
+            <p class="lead">Sur place, à emporter, ou livré chez vous par Uber Eats.</p>
+          </header>
+
+          <div class="tabs" role="tablist" aria-label="Catégories de la carte" data-tabs>
+            <button role="tab" type="button" id="tab-douceurs" aria-controls="panel-douceurs" aria-selected="true">Douceurs</button>
+            <button role="tab" type="button" id="tab-pates" aria-controls="panel-pates" aria-selected="false" tabindex="-1">Pâtes fraîches</button>
+            <button role="tab" type="button" id="tab-pinse" aria-controls="panel-pinse" aria-selected="false" tabindex="-1">Pinse</button>
+            <button role="tab" type="button" id="tab-focaccia" aria-controls="panel-focaccia" aria-selected="false" tabindex="-1">Focaccia</button>
+            <button role="tab" type="button" id="tab-salades" aria-controls="panel-salades" aria-selected="false" tabindex="-1">Salades</button>
+            <button role="tab" type="button" id="tab-boissons" aria-controls="panel-boissons" aria-selected="false" tabindex="-1">Boissons</button>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-douceurs" aria-labelledby="tab-douceurs" tabindex="0">
+            <ul class="dishes">
+              <li class="dish" data-img="1710242835722-49f4e8a05fb6">
+                <div class="dish__row"><h3 class="dish__name">Cornetto<span class="star" title="Parmi les plus demandés">✱</span></h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">4,60&nbsp;€</span></div>
+                <p class="dish__desc">Fourré à la crème pâtissière, garniture au choix&nbsp;: pistache, Nutella, noisette, spéculoos, Kinder Bueno, Kit Kat, Oreo…</p>
+              </li>
+              <li class="dish" data-img="1649927887815-7489d7814319">
+                <div class="dish__row"><h3 class="dish__name">Brioche feuilletée</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">5,70&nbsp;€</span></div>
+                <p class="dish__desc">Brioche feuilletée à la pistache.</p>
+              </li>
+              <li class="dish" data-img="1790543006977-5693d3fdf4c8">
+                <div class="dish__row"><h3 class="dish__name">Sfogliatella</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">2,30&nbsp;€</span></div>
+                <p class="dish__desc">La pâtisserie feuilletée emblématique de Naples.</p>
+              </li>
+              <li class="dish" data-img="1772494047824-c664b7e24ee8">
+                <div class="dish__row"><h3 class="dish__name">Cannoli</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">2,10&nbsp;€</span></div>
+                <p class="dish__desc">Tube croustillant fourré à la pistache et au citron.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__row"><h3 class="dish__name">Cannoncini</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">1,95&nbsp;€</span></div>
+                <p class="dish__desc">Mini-rouleaux feuilletés à la vanille.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-pates" aria-labelledby="tab-pates" tabindex="0" hidden>
+            <ul class="dishes">
+              <li class="dish" data-img="1771360873707-f435ef9732ea">
+                <div class="dish__row"><h3 class="dish__name">Al Pomodoro</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">11,90&nbsp;€</span></div>
+                <p class="dish__desc">Pâtes fraîches, tomates, ail, basilic, parmesan, huile d'olive.</p>
+              </li>
+              <li class="dish" data-img="1764586119076-61711e8ed25a">
+                <div class="dish__row"><h3 class="dish__name">Carbonara<span class="star" title="Parmi les plus demandés">✱</span></h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">14,90&nbsp;€</span></div>
+                <p class="dish__desc">Pecorino, œufs frais, lardons artisanaux, poivre.</p>
+              </li>
+              <li class="dish" data-img="1755677617146-9d69ea16b199">
+                <div class="dish__row"><h3 class="dish__name">Gnocchi à la truffe</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">18,90&nbsp;€</span></div>
+                <p class="dish__desc">Crème de truffe, truffe noire du Périgord, parmesan, basilic.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-pinse" aria-labelledby="tab-pinse" tabindex="0" hidden>
+            <ul class="dishes">
+              <li class="dish" data-img="1646851035330-f35fa5b44beb">
+                <div class="dish__row"><h3 class="dish__name">Pinsa Pomodoro</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">12,70&nbsp;€</span></div>
+                <p class="dish__desc">Sauce tomate, mozzarella di bufala, basilic, origan.</p>
+              </li>
+              <li class="dish" data-img="1646851035330-f35fa5b44beb">
+                <div class="dish__row"><h3 class="dish__name">Pinsa Cecina Verde</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">13,90&nbsp;€</span></div>
+                <p class="dish__desc">Cecina de bœuf, burrata, tomates cerises, crème de balsamique.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-focaccia" aria-labelledby="tab-focaccia" tabindex="0" hidden>
+            <ul class="dishes">
+              <li class="dish" data-img="1738173689012-95fa988f684d">
+                <div class="dish__row"><h3 class="dish__name">Oro Verde<span class="star" title="Parmi les plus demandés">✱</span></h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">11,90&nbsp;€</span></div>
+                <p class="dish__desc">Pesto, mortadelle, mozzarella, pistaches concassées, roquette.</p>
+              </li>
+              <li class="dish" data-img="1639667911189-700bd2029f5b">
+                <div class="dish__row"><h3 class="dish__name">Valtellina</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">11,90&nbsp;€</span></div>
+                <p class="dish__desc">Cecina de bœuf, ricotta, tomates séchées, roquette.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-salades" aria-labelledby="tab-salades" tabindex="0" hidden>
+            <ul class="dishes">
+              <li class="dish" data-img="1649400454485-b8ad827f929d">
+                <div class="dish__row"><h3 class="dish__name">Vesuvio</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">11,50&nbsp;€</span></div>
+                <p class="dish__desc">Roquette, burrata, noix, parmesan, huile d'olive.</p>
+              </li>
+              <li class="dish" data-img="1769458313937-b5ad8f84942e">
+                <div class="dish__row"><h3 class="dish__name">Caprese<span class="star" title="Parmi les plus demandés">✱</span></h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">12,40&nbsp;€</span></div>
+                <p class="dish__desc">Tomates, burrata, basilic, huile d'olive, crème balsamique.</p>
+              </li>
+              <li class="dish" data-img="1649400454485-b8ad827f929d">
+                <div class="dish__row"><h3 class="dish__name">Rustique</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">14,90&nbsp;€</span></div>
+                <p class="dish__desc">Roquette, burrata, tomates cerises, charcuterie.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-boissons" aria-labelledby="tab-boissons" tabindex="0" hidden>
+            <ul class="dishes">
+              <li class="dish" data-img="1592663527359-cf6642f54cff">
+                <div class="dish__row"><h3 class="dish__name">Ice latte</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">5,90&nbsp;€</span></div>
+                <p class="dish__desc">Latte glacé.</p>
+              </li>
+              <li class="dish" data-img="1775846933630-3c1531299e5a">
+                <div class="dish__row"><h3 class="dish__name">Matcha glacé</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">7,00&nbsp;€</span></div>
+                <p class="dish__desc">Thé matcha et lait, sur glace.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__row"><h3 class="dish__name">Smoothie frais</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">5,20&nbsp;€</span></div>
+                <p class="dish__desc">Parfum au choix.</p>
+              </li>
+              <li class="dish">
+                <div class="dish__row"><h3 class="dish__name">Milkshake</h3><span class="dish__lead" aria-hidden="true"></span><span class="dish__price">7,80&nbsp;€</span></div>
+                <p class="dish__desc">Parfum au choix.</p>
+              </li>
+            </ul>
+          </div>
+
+          <footer class="carta__foot">
+            <p class="carta__legend"><span class="star">✱</span> Les plus demandés. Carte indicative, susceptible d'évoluer. Options végétariennes.</p>
+            <a class="link" href="https://www.ubereats.com/fr/store/napoli-cornetto-montelimar/LKw0uz9TXLqp-MXpumczGw" target="_blank" rel="noopener">Livraison Uber Eats <i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+          </footer>
+        </div>
+
+        <figure class="carta__preview" data-preview aria-hidden="true">
+          <img class="grade is-on" src="https://images.unsplash.com/photo-1710242835722-49f4e8a05fb6?auto=format&fit=crop&w=900&h=1200&q=78" width="900" height="1200" loading="lazy" alt="">
+          <img class="grade" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="900" height="1200" alt="">
+          <figcaption data-preview-caption>Cornetto</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ═════════════ AVIS ═════════════ -->
+    <section class="avis wrap" id="avis" aria-labelledby="avis-title">
+      <div class="avis__score">
+        <h2 class="h2" id="avis-title" data-split>Montélimar a adopté le cornetto.</h2>
+        <!-- ⚠️ Note relevée sur la fiche Google Maps le 14/11/2026 : à mettre à jour avant mise en ligne -->
+        <div class="score" data-reveal>
+          <p class="score__num"><span data-count="4.9">4,9</span></p>
+          <div class="score__meta">
+            <p class="stars" aria-label="5 étoiles"><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i><i class="ph-fill ph-star" aria-hidden="true"></i></p>
+            <p>Note moyenne sur 78 avis Google.</p>
+            <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=NAPOLI%20Cornetto%20Mont%C3%A9limar" target="_blank" rel="noopener">Lire les avis <i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⚠️ PLACEHOLDERS : remplacer les 3 citations par de vrais avis Google (texte + prénom) avant mise en ligne -->
+      <div class="avis__quotes" data-quotes data-reveal>
+        <div class="quotes" aria-live="polite">
+          <figure class="quote is-on">
+            <blockquote><p>« Le cornetto pistache est une merveille. On se croirait dans une pasticceria de Naples. »</p></blockquote>
+            <figcaption>Léa, habituée du samedi matin</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p>« Pâtes fraîches délicieuses et accueil adorable. Ma pause déjeuner préférée du centre-ville. »</p></blockquote>
+            <figcaption>Mathieu, en pause déjeuner</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p>« Les cannoli pistache-citron valent à eux seuls le détour par la rue Roger Poyol. »</p></blockquote>
+            <figcaption>Sophie, de passage à Montélimar</figcaption>
+          </figure>
+        </div>
+        <div class="quotes__nav">
+          <button type="button" class="round" data-quote-prev aria-label="Avis précédent"><i class="ph-light ph-arrow-left" aria-hidden="true"></i></button>
+          <button type="button" class="round" data-quote-next aria-label="Avis suivant"><i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+          <span class="quotes__bar" aria-hidden="true"><i data-quote-bar></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ VENIR ═════════════ -->
+    <section class="venir" id="venir" aria-labelledby="venir-title">
+      <div class="venir__inner wrap">
+        <div class="venir__info">
+          <p class="label">Venir</p>
+          <h2 class="h2" id="venir-title" data-split>Venir nous voir.</h2>
+
+          <p class="live" data-status>
+            <span class="status__dot" aria-hidden="true"></span>
+            <span data-status-long>Ouvert du mardi au samedi, de 9h à 19h30.</span>
+          </p>
+
+          <div class="venir__blocks">
+            <div class="venir__block">
+              <h3>Adresse</h3>
+              <address>2 rue Roger Poyol<br>26200 Montélimar<br>Centre-ville piéton</address>
+            </div>
+            <div class="venir__block">
+              <h3>Téléphone</h3>
+              <p><a href="tel:+33667435006">06 67 43 50 06</a></p>
+            </div>
+            <div class="venir__block venir__block--hours">
+              <h3>Horaires</h3>
+              <!-- ⚠️ Horaires à confirmer : garder en phase avec main.js > CONFIG.hours -->
+              <ul class="hours" aria-label="Horaires d'ouverture">
+                <li data-day="1"><span>Lundi</span><span>Fermé</span></li>
+                <li data-day="2"><span>Mardi</span><span>9h - 19h30</span></li>
+                <li data-day="3"><span>Mercredi</span><span>9h - 19h30</span></li>
+                <li data-day="4"><span>Jeudi</span><span>9h - 19h30</span></li>
+                <li data-day="5"><span>Vendredi</span><span>9h - 19h30</span></li>
+                <li data-day="6"><span>Samedi</span><span>9h - 19h30</span></li>
+                <li data-day="0"><span>Dimanche</span><span>Fermé</span></li>
+              </ul>
+            </div>
+            <div class="venir__block">
+              <h3>Sur place</h3>
+              <ul class="services" aria-label="Services">
+                <li><i class="ph-light ph-storefront" aria-hidden="true"></i>Sur place</li>
+                <li><i class="ph-light ph-bag" aria-hidden="true"></i>À emporter</li>
+                <li><i class="ph-light ph-moped" aria-hidden="true"></i>Livraison Uber Eats</li>
+                <li><i class="ph-light ph-leaf" aria-hidden="true"></i>Options végétariennes</li>
+                <li><i class="ph-light ph-credit-card" aria-hidden="true"></i>Carte bancaire</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="venir__ctas">
+            <a class="btn btn--accent" href="https://www.google.com/maps/dir/?api=1&amp;destination=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar" target="_blank" rel="noopener"><span>Itinéraire</span><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+            <a class="btn btn--line" href="tel:+33667435006"><span>Appeler</span><i class="ph-light ph-phone" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="venir__map" data-clip>
+          <iframe
+            title="Carte : NAPOLI Cornetto, 2 rue Roger Poyol, Montélimar"
+            src="https://www.google.com/maps?q=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar&amp;z=17&amp;output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═════════════ FOOTER ═════════════ -->
+  <footer class="footer">
+    <div class="footer__top wrap">
+      <p class="footer__line">Un cornetto vous attend <em>rue Roger Poyol.</em></p>
+      <a class="btn btn--paper" href="https://www.google.com/maps/dir/?api=1&amp;destination=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar" target="_blank" rel="noopener"><span>Itinéraire</span><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="footer__grid wrap">
+      <div class="footer__col">
+        <h3>Adresse</h3>
+        <p>2 rue Roger Poyol<br>26200 Montélimar</p>
+      </div>
+      <div class="footer__col">
+        <h3>Horaires</h3>
+        <p>Du mardi au samedi<br>9h - 19h30</p>
+      </div>
+      <div class="footer__col">
+        <h3>Contact</h3>
+        <p><a href="tel:+33667435006">06 67 43 50 06</a></p>
+      </div>
+      <div class="footer__col">
+        <h3>Nous suivre</h3>
+        <p class="footer__links">
+          <a href="https://www.instagram.com/napolicornetto/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@napoli.cornetto" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.ubereats.com/fr/store/napoli-cornetto-montelimar/LKw0uz9TXLqp-MXpumczGw" target="_blank" rel="noopener">Livraison Uber Eats</a>
+        </p>
+      </div>
+    </div>
+
+    <p class="footer__word" aria-hidden="true" data-footer-word>NAPOLI</p>
+
+    <div class="footer__legal wrap">
+      <span>© 2026 NAPOLI Cornetto</span>
+      <a href="#" data-todo="mentions">Mentions légales</a>
+      <a href="https://aveio.fr" target="_blank" rel="noopener">Site réalisé par aveio</a>
+    </div>
+  </footer>
+
+  <!-- Barre d'actions mobile -->
+  <nav class="mobilebar" aria-label="Actions rapides">
+    <a href="tel:+33667435006"><i class="ph-light ph-phone" aria-hidden="true"></i>Appeler</a>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=NAPOLI%20Cornetto%2C%202%20Rue%20Roger%20Poyol%2C%2026200%20Mont%C3%A9limar" target="_blank" rel="noopener"><i class="ph-light ph-navigation-arrow" aria-hidden="true"></i>Itinéraire</a>
+    <a href="#carta"><i class="ph-light ph-fork-knife" aria-hidden="true"></i>La carte</a>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
+  <script src="main.js?v=2.6" defer></script>
+</body>
+</html>
